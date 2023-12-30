@@ -1,5 +1,6 @@
 from api_key import API_KEY
 import requests
+import json
 
 base_url = "https://api.openweathermap.org/data/3.0/onecall"
 geocoding_url = "http://api.openweathermap.org/geo/1.0/direct"
@@ -7,7 +8,7 @@ geocoding_url = "http://api.openweathermap.org/geo/1.0/direct"
 api_key = API_KEY
 
 geo_params = {
-    'q': 'Alameda,CA',
+    'q': 'Alameda,California',
     'appid': api_key,
     'limit': 1
 }
@@ -33,11 +34,14 @@ weather_params = {
     'lat': lat,
     'lon': lon,
     'appid': api_key,
-    'units': 'standard',
+    'units': 'imperial',
     'exclude': 'minutely'
 }
 
 weather_response = api_call(base_url, weather_params)
 
-for key in weather_response:
-    print(key,":", weather_response[key])
+weather_response_dump = json.dumps(weather_response, indent=4)
+
+file = open('dump.json', 'w')
+file.write(weather_response_dump)
+file.close()

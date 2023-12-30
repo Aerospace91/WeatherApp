@@ -161,3 +161,6 @@ cython_debug/
 
 #API KEY
 api_key.py
+
+#JSON Dumps used for testing and formatting
+dump.json
