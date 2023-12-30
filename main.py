@@ -41,7 +41,3 @@ weather_params = {
 weather_response = api_call(base_url, weather_params)
 
 weather_response_dump = json.dumps(weather_response, indent=4)
-
-file = open('dump.json', 'w')
-file.write(weather_response_dump)
-file.close()
