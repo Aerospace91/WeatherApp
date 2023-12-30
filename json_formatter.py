@@ -6,7 +6,7 @@ def convert_timestamp_to_datetime(timestamp):
     datetime_obj = datetime.datetime.fromtimestamp(timestamp)
     return datetime_obj
 
-def toTextualDescription(degree):
+def deg_to_text(degree):
     # Converting Degree Angle to Wind Direction
     if degree>337.5:
         return 'Northerly'
@@ -51,7 +51,7 @@ print(f" - Humidity: {current_data['humidity']}%")
 print(f" - Dew Point: {current_data['dew_point']}")
 print(f" - Uvi: {current_data['uvi']}")
 print(f" - Wind Speed: {current_data['wind_speed']} mph")
-print(f" - Wind Direction: {toTextualDescription(degree)}")
+print(f" - Wind Direction: {deg_to_text(degree)}")
 print(f" - Weather Description: {current_data['weather'][0]['description']}")
 # print(f" - {current_data[]}")
 
@@ -62,7 +62,7 @@ for hourly in hourly_data:
     print(f" - Feels like: {hourly['feels_like']} fahrenheit")
     print(f" - Humidity: {hourly['humidity']}%")
     print(f" - Wind Speed: {hourly['wind_speed']} mph")
-    print(f" - Wind Direction: {toTextualDescription(hourly['wind_deg'])}")
+    print(f" - Wind Direction: {deg_to_text(hourly['wind_deg'])}")
     print(f" - Weather Description: {hourly['weather'][0]['description']}")
     print()
     
@@ -81,6 +81,6 @@ for daily in daily_data:
     print(f" - - Evening: {daily['feels_like']['eve']}")
     print(f" - Humidity: {daily['humidity']}%")
     print(f" - Wind Speed: {daily['wind_speed']} mph")
-    print(f" - Wind Direction: {toTextualDescription(daily['wind_deg'])}")
+    print(f" - Wind Direction: {deg_to_text(daily['wind_deg'])}")
     print(f" - Weather Description: {daily['weather'][0]['description']}")
     print()
